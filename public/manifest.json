@@ -1,0 +1,24 @@
+{
+    "name": "Iota Dev",
+    "short_name": "Iota Dev",
+    "description": "Iota Test Dev app",
+    "background_color": "#35495e",
+    "theme_color": "#41b883",
+    "start_url": "./?umt_source=web_app_manifest",
+    "scope": "./",
+    "lang": "es",
+    "display": "fullscreen",
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "./images/logo48.png",
+            "sizes": "48x48",
+            "type": "image/png"
+        },
+        {
+            "src": "./images/logo144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        }
+    ]
+}
