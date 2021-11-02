@@ -2,19 +2,22 @@
   <img alt="Iota Logo" src="./assets/iota_logo.png"  class="logo">
   <div class="menu">
     <ServerComponent/>
-    <HelloWorld msg="Test"/>
+    <GenerateWallet/>
+    <!--<HelloWorld msg="Test"/>-->
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+//import HelloWorld from './components/HelloWorld.vue'
 import ServerComponent from './components/ServerComponent.vue'
+import GenerateWallet from './components/GenerateWallet.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
-    ServerComponent
+    //HelloWorld,
+    ServerComponent,
+    GenerateWallet,
   }
 }
 </script>
