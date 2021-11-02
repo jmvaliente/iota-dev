@@ -18,6 +18,9 @@
     "@vue/compiler-sfc": "^3.0.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^7.0.0"
+    "eslint-plugin-vue": "^7.0.0",
+    "@iota/client": "^1.0.0",
+    "crypto": "^1.0.1",
+    "dotenv": "^10.0.0"
   }
 }
