@@ -3,6 +3,8 @@
   <div class="menu">
     <ServerComponent/>
     <GenerateWallet/>
+    <ValidateAddress/>
+    <BalanceAddress/>
     <!--<HelloWorld msg="Test"/>-->
   </div>
 </template>
@@ -11,6 +13,8 @@
 //import HelloWorld from './components/HelloWorld.vue'
 import ServerComponent from './components/ServerComponent.vue'
 import GenerateWallet from './components/GenerateWallet.vue'
+import ValidateAddress from './components/ValidateAddress.vue'
+import BalanceAddress from './components/BalanceAddress.vue'
 
 export default {
   name: 'App',
@@ -18,6 +22,8 @@ export default {
     //HelloWorld,
     ServerComponent,
     GenerateWallet,
+    ValidateAddress,
+    BalanceAddress,
   }
 }
 </script>
@@ -33,8 +39,9 @@ export default {
 }
 .menu {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
 }
 .logo {
