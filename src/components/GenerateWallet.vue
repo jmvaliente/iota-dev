@@ -1,52 +1,83 @@
 <template>
-    <div class="container">
-        <h1>Generate Seed and Address</h1>
-        <div class="seedData">
-            <h4>Seed and mnemonic</h4>
-            <span v-if="state">Seed: {{state.hexEncodedSeed}}</span>
-            <span v-if="state">mnemonic: <b>{{state.mnemonic}}</b></span>
-            <h4>Addresses</h4>
-            <div class="address" v-for="address in state.addresses" :key="address">
-                <span v-if="state" >{{address}}</span>
+  <div>
+    <h2>Generate Seed and Address</h2>
+    <div>
+      <h4>Seed and mnemonic</h4>
+      <div class="table">
+        <ul class="collapsible">
+          <li>
+            <div class="collapsible-header">
+              <i class="material-icons">filter_drama</i>Seed
             </div>
-            <button v-on:click="handleGenerateSeed">Generate Seed</button>
-        </div>
+            <div class="collapsible-body">
+              <span>{{ state.hexEncodedSeed }}</span>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header">
+              <i class="material-icons">place</i>Mnemonic
+            </div>
+            <div class="collapsible-body">
+              <span>{{ state.mnemonic }}</span>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header">
+              <i class="material-icons">account_balance_wallet </i>Address
+            </div>
+            <div class="collapsible-body">
+              <span
+                ><div
+                  class="address"
+                  v-for="address in state.addresses"
+                  :key="address"
+                >
+                  <span v-if="state">{{ address }}</span>
+                </div></span
+              >
+            </div>
+          </li>
+        </ul>
+      </div>
+      <button
+        class="waves-effect waves-light btn"
+        v-on:click="handleGenerateSeed"
+      >
+        Generate Seed
+      </button>
     </div>
+  </div>
 </template>
 
 <script>
 export default {
-    name: "Generate Wallet",
-    data() {
-        return{
-            state: {}
-        }
+  name: "Generate Wallet",
+  data() {
+    return {
+      state: {},
+    };
+  },
+  methods: {
+    handleGenerateSeed() {
+      return fetch("http://localhost:5000/seed_generate")
+        .then((result) => result.json())
+        .then((data) => (this.state = data));
     },
-    methods: {
-        handleGenerateSeed(){
-            return fetch('http://localhost:5000/seed_generate')
-                .then(result => result.json())
-                .then(data => this.state = data)
-        }
-    }
-}
+  },
+};
 </script>
 
 <style scoped>
 .seedData {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 .address {
-    display: flex;
-    margin: 5px;
-    
+  display: flex;
+  margin: 5px;
 }
-.container {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
+.table {
+  width: 100%;
 }
-
 </style>
