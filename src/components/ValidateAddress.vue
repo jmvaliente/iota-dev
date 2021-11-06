@@ -12,8 +12,8 @@
         Check Address
       </button>
     </div>
-    <div v-if="statusWallet">
-      <h5>Wallet Validate</h5>
+    <div>
+      <h5 v-if="statusWallet">Wallet Validate</h5>
     </div>
   </div>
 </template>
@@ -30,7 +30,7 @@ export default {
     handleCheckAddress() {
       fetch(`http://localhost:5000/validate_address/${this.address}`)
         .then((result) => result.json())
-        .then((data) => (this.statusWallet = data))
+        .then((data) => (this.statusWallet = data.validate))
         .catch((error) => console.log(error));
     },
   },

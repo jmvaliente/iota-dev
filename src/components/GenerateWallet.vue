@@ -29,10 +29,10 @@
               <span
                 ><div
                   class="address"
-                  v-for="address in state.addresses"
+                  v-for="(address, index) in state.addresses"
                   :key="address"
                 >
-                  <span v-if="state">{{ address }}</span>
+                  <span v-if="state">Index: {{ index }} : {{ address }}</span>
                 </div></span
               >
             </div>
